@@ -31,3 +31,7 @@ form button {
   height: 42px;
   font-size: 1.275rem;
 }
+
+img {
+  max-width: 70%;
+}

@@ -54,7 +54,23 @@
     <?php
             }
         } else {
-            echo "<h2>There are no results matching your search!</h2>";
+            echo <<<END
+                <h2>Your search for '$search' returned no result</h2>
+                <p>Here are some suggestions below:</p>
+                <ul>
+                    <li>Make sure all words are spelled correctly</li>
+                    <li>Try more general keywords, especially if you are attempting a name</li>
+                    <li>Use specific keywords in your search</li>
+                    <li>Use a combination of different keywords to improve search listings</li>
+                </ul>
+                <img src="./giphy.gif" title="Nothing found"/> <br> <br>
+                <p><strong>Try again but this time be more specific...</strong></p>
+                 <form action="search.php" method="post">
+                    <input type="text" name="search" placeholder="e.g. programming">
+                    <button type="submit" name="submit-search">Search</button>
+                </form>
+
+END;
         }
     }
 
