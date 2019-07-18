@@ -4,7 +4,7 @@
 
     <form action="search.php" method="post">
         <input type="text" name="search" placeholder="Search form...">
-        <button type="submit" name="search-form">Search</button>
+        <button type="submit" name="submit-search">Search</button>
     </form>
     <h1>Article Front page</h1>
     <h2>All article</h2>
@@ -26,6 +26,7 @@
             <p><?php echo $article_date; ?></p>
             <p><?php echo $article_author; ?></p>
         </div>
+        <hr>
 
 
         <?php

@@ -1,0 +1,33 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f3f3f3;
+  font-family: "Lato", sans-serif;
+}
+
+.article-container {
+  width: 80%;
+  padding: 1.25rem;
+  background: #fff;
+}
+
+.article h3 {
+  color: crimson;
+  font-size: 2em;
+}
+
+form input {
+  width: 18.75em;
+  padding: 0 1.25rem;
+  height: 2.5em;
+  font-size: 1rem;
+}
+
+form button {
+  width: 6.25em;
+  height: 42px;
+  font-size: 1.275rem;
+}
