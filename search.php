@@ -22,10 +22,10 @@
         $search_query .= "article_author LIKE '%$search%' OR ";
         $search_query .= "article_date LIKE '%$search%' ";
         $search_result = mysqli_query($conn, $search_query);
-        if (!$search_result) { //sql error checker
-            die("Database query failed: " . mysqli_error($conn));
-        }
         $search_listing = mysqli_num_rows($search_result);
+        $suffix_checker = ($search_listing !== 1) ? 's' : '';
+        $output_result_text = ($search_listing > 0) ? '<h2>Your search for' . " '{$search}'" . ' yielded ' . "$search_listing" . ' result' . "$suffix_checker" . '</h2>' : '';
+        echo $output_result_text;
         if ($search_listing > 0) {
             while ($row = mysqli_fetch_assoc($search_result)) {
                 $article_id = $row['article_id'];
@@ -35,7 +35,9 @@
                 $article_author = $row['article_author'];
                 ?>
     <div class="article">
-        <h3><?php echo $article_title; ?></h3>
+
+        <h3><a href="article.php?title=<?php echo $article_title; ?>&date=<?php echo $article_date; ?>"><?php echo $article_title; ?>
+            </a></h3>
         <p><?php echo $article_content; ?></p>
         <p><?php echo $article_date; ?></p>
         <p><?php echo $article_author; ?></p>
