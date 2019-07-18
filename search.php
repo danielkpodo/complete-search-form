@@ -12,9 +12,18 @@
             $data = trim($data);
             return $data;
         }
-        $search = protect_input($search);
-        //check some validations here!
 
+        $search = protect_input($search);
+
+        if ($search === '' and empty($search)) {
+            header("Location: ./index.php?search=empty");
+            exit();
+        }
+
+        if (strlen(trim($search)) < 3) {
+            header("Location: ./index.php?search=search_term_too_small");
+            exit();
+        }
 
         $search_query = "SELECT * FROM article WHERE ";
         $search_query .= "article_title LIKE '%$search%' OR ";
@@ -43,7 +52,7 @@
         <p><?php echo $article_author; ?></p>
     </div>
     <?php
-            } //end of while loop
+            }
         } else {
             echo "<h2>There are no results matching your search!</h2>";
         }
@@ -51,8 +60,8 @@
 
 
 
-
     ?>
 </div>
+
 
 <?php include_once("./footer.php"); ?>
